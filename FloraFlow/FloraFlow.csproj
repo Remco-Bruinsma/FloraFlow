@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\inlog.PNG" />
+    <None Include="wwwroot\images\Knipsel.PNG" />
+    <None Include="wwwroot\images\mainflower.PNG" />
+    <None Include="wwwroot\images\plant.PNG" />
+    <None Include="wwwroot\images\pot.PNG" />
+  </ItemGroup>
+
+</Project>
