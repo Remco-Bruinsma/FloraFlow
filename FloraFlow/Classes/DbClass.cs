@@ -1,12 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FloraFlow.Classes
 {
-    public class ImportPots
+    public class DbClass
     {
         private static MySqlConnection databaseConnection = new MySqlConnection("Datasource=127.0.0.1;port=3306;username=root;password=;database= floraflow;");
         public static void Check_databaseConnectionState(MySqlConnection databaseConnection)
@@ -16,9 +17,9 @@ namespace FloraFlow.Classes
                 databaseConnection.Close();
             }
         }
-        public static List<string> ImportPlantNames()
+        public static List<string> GetFromDb(string command)
         {
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT `pot` FROM `pots`");
+            MySqlCommand sqlCommand = new MySqlCommand(command);
             Check_databaseConnectionState(databaseConnection);
             List<string> results = new List<string> { };
             try
@@ -43,32 +44,23 @@ namespace FloraFlow.Classes
             }
 
         }
-        public static List<string> ImportPlantImg()
+        public static bool StoreDb(string command)
         {
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT `images` FROM `pots`");
+            MySqlCommand sqlCommand = new MySqlCommand(command);
             Check_databaseConnectionState(databaseConnection);
-            List<string> results = new List<string> { };
             try
             {
                 sqlCommand.Connection = databaseConnection;
                 databaseConnection.Open();
                 MySqlDataReader executeString = sqlCommand.ExecuteReader();
-                while (executeString.Read())
-                {
-                    for (int i = 0; i < executeString.FieldCount; i++)
-                    {
-                        results.Add(executeString.GetValue(i).ToString());
-                    }
-                }
                 databaseConnection.Close();
-                return results;
+                return true;
             }
             catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
-                return null;
+                return false;
             }
-
         }
     }
 }

@@ -11,8 +11,11 @@ namespace FloraFlow.Models
         public int Use_of_water { get; set; }
         public int Time_delay { get; set; }
         public string Plant_description { get; set; }
+        public string Url { get; set; }
 
-
+        public PlantModel()
+        {
+        }
         public PlantModel(string name, int water, int milliseconds, string description)
         {
             this.Plant_name = name;

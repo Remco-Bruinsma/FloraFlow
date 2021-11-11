@@ -12,15 +12,16 @@ namespace FloraFlow.Controllers
     {
         public IActionResult Plants()
         {
-            List<PlantModel> plantsName = new List<PlantModel> { };
+            List<PlantModel> plants = new List<PlantModel> { };
             List<string> plantNames = ImportPlants.ImportPlantNames();
-            ViewData["plants"] = plantNames;
-            return View("~/Views/Plants/Plants.cshtml", plantsName);
-
-            List<PlantModel> plantsImg = new List<PlantModel> { };
             List<string> plantImages = ImportPlants.ImportPlantImg();
-            ViewData["plants"] = plantImages;
-            return View("~/Views/Plants/Plants.cshtml", plantsImg);
+            for (int i = 0; i < plantNames.Count(); i++)
+            {
+                PlantModel plantModel = new PlantModel {Plant_name = plantNames[i], Url = plantImages[i] };
+                plants.Add(plantModel);
+            }
+            ViewData["plants"] = plants;
+            return View("~/Views/Plants/Plants.cshtml", plants);
         }
     }
 }
