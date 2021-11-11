@@ -98,25 +98,28 @@
             </div>
         </div>
     </section>
-
-    @for (int i = 0; i < plants.Count(); i++)
-    {
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="@plants[i].Url" alt="@plants[i].Plant_name" style="width:300px;height:300px;" />
-                </div>
-                <div class="flip-card-back">
-                    <h1>"@plants[i].Plant_name"</h1>
-                    <p>Plant descriptie</p>
-                    <p>We love that plant</p>
-                    <div class="btn-group">
-                        <a href="@Url.Action("FillPot", "Pots", new { plant = plants[i].Plant_name })" class="btn btn-success">Add to pot</a>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @for (int i = 0; i < plants.Count(); i++)
+            {
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="@plants[i].Url" alt="@plants[i].Plant_name" style="width:300px;height:300px;" />
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>"@plants[i].Plant_name"</h1>
+                            <p>Plant descriptie</p>
+                            <p>We love that plant</p>
+                            <div class="btn-group">
+                                <a href="@Url.Action("FillPot", "Pots", new { plant = plants[i].Plant_name })" class="btn btn-success">Add to pot</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
-    }
+    </div>
 </main>
 
 

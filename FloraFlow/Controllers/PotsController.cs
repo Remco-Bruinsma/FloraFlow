@@ -15,11 +15,14 @@ namespace FloraFlow.Controllers
         public IActionResult Pots()
         {
             List<Potmodel> pots = new List<Potmodel> { };
-            List<string> potsNames = DbClass.GetFromDb("SELECT `ID` FROM `pots`");
-            PlantModel plant = new PlantModel { Plant_name = "FlamingoPlant", Url = "https://cdn.webshopapp.com/shops/29478/files/360280714/650x650x2/citroenboom.jpg" };
-            foreach (string pot in potsNames)
+            List<string> potIDs = DbClass.GetFromDb("SELECT `ID` FROM `pots`");
+            //PlantModel plant = new PlantModel { Plant_name = "FlamingoPlant", Url = "https://cdn.webshopapp.com/shops/29478/files/360280714/650x650x2/citroenboom.jpg" };
+            foreach (string pot in potIDs)
             {
-                Potmodel Pot = new Potmodel { ID = Convert.ToInt32(pot), Amount = 1, Plant = plant };
+                List<string> plantID = DbClass.GetFromDb("SELECT `plant` FROM `pots` WHERE `ID` = '"+pot+"'");
+                List<string> plant = DbClass.GetFromDb("SELECT * FROM `plants` WHERE `ID` = "+plantID[0]+"");
+                PlantModel plantModel = new PlantModel { Plant_name = plant[1],Url = plant[5]};
+                Potmodel Pot = new Potmodel { ID = Convert.ToInt32(pot), Amount = 1, Plant = plantModel };
                 pots.Add(Pot);
             }
             ViewData["pots"] = pots;

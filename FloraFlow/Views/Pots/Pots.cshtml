@@ -38,35 +38,32 @@
             </div>
         </div>
     </section>
-
-    <div class="album py-5 bg-light">
+    <div>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                    @for (int i = 0; i < Pots.Count(); i++)
-                    {
+                @for (int i = 0; i < Pots.Count(); i++)
+                {
 
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="card shadow-sm">
-                                    <svg class="bd-placeholder-img card-img-top"> <img src="@Pots[i].Plant.Url" alt="@Pots[i].Plant.Plant_name"  /></svg>
-                                    <div class="card-body">
-                                        <p class="card-text">Pot @Pots[i].ID is filled with @Pots[i].Plant.Plant_name </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <a  href="@Url.Action("ChangePot", "Pots", new { pot = Pots[i].ID})" class="btn btn-success">Change</a>
-                                                @*<button type="button" class="1c btn btn-sm btn-outline-secondary"><a class="nav-link text-dark" asp-area="" asp-controller="Plants" asp-action="Plants">Change</a></button>*@
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="card shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top"> <img src="@Pots[i].Plant.Url" alt="@Pots[i].Plant.Plant_name"style="width:300px;height:300px;" /></svg>
+                                <div class="card-body">
+                                    <p class="card-text">Pot @Pots[i].ID is filled with @Pots[i].Plant.Plant_name </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="@Url.Action("ChangePot", "Pots", new { pot = Pots[i].ID})" class="btn btn-success">Change</a>
+                                            @*<button type="button" class="1c btn btn-sm btn-outline-secondary"><a class="nav-link text-dark" asp-area="" asp-controller="Plants" asp-action="Plants">Change</a></button>*@
 
-                                            </div>
-                                            <small class="text-muted">9 hours ago</small>
                                         </div>
+                                        <small class="text-muted">9 hours ago</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                    }
-                </div>
+                    </div>
+
+                }
             </div>
         </div>
     </div>
