@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FloraFlow
+namespace FloraFlow.Classes
 {
-    public class ImportPlants
+    public class ImportPots
     {
         private static MySqlConnection databaseConnection = new MySqlConnection("Datasource=127.0.0.1;port=3306;username=root;password=;database= floraflow;");
         public static void Check_databaseConnectionState(MySqlConnection databaseConnection)
@@ -18,7 +18,7 @@ namespace FloraFlow
         }
         public static List<string> ImportPlantNames()
         {
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT `plantName` FROM `plants`");
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT `pot` FROM `pots`");
             Check_databaseConnectionState(databaseConnection);
             List<string> results = new List<string> { };
             try
@@ -45,7 +45,7 @@ namespace FloraFlow
         }
         public static List<string> ImportPlantImg()
         {
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT `images` FROM `plants`");
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT `images` FROM `pots`");
             Check_databaseConnectionState(databaseConnection);
             List<string> results = new List<string> { };
             try
@@ -70,7 +70,5 @@ namespace FloraFlow
             }
 
         }
-
     }
-
 }

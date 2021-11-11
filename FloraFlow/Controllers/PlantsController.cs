@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FloraFlow.Classes;
+using FloraFlow.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +12,15 @@ namespace FloraFlow.Controllers
     {
         public IActionResult Plants()
         {
-            List<PlantModel> plants = new List<PlantModel> { };
+            List<PlantModel> plantsName = new List<PlantModel> { };
             List<string> plantNames = ImportPlants.ImportPlantNames();
             ViewData["plants"] = plantNames;
-            return View("~/Views/Plants/Plants.cshtml", plants);
+            return View("~/Views/Plants/Plants.cshtml", plantsName);
+
+            List<PlantModel> plantsImg = new List<PlantModel> { };
+            List<string> plantImages = ImportPlants.ImportPlantImg();
+            ViewData["plants"] = plantImages;
+            return View("~/Views/Plants/Plants.cshtml", plantsImg);
         }
     }
 }

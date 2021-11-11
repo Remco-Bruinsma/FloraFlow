@@ -22,11 +22,6 @@ namespace FloraFlow.Controllers
         {
             return View();
         }
-        public IActionResult Pots()
-        {
-
-            return View();
-        }
 
         public IActionResult Privacy()
         {

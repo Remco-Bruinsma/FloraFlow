@@ -1,0 +1,70 @@
+﻿
+@using System.Collections.Generic;
+@using System.ComponentModel.DataAnnotations;
+@using System.Net;
+@using FloraFlow.Models;
+
+@{
+    ViewBag.Title = "SelectCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<string> potsName = ViewData["pots"] as List<string>;
+    List<string> potsImage = ViewData["pots"] as List<string>;
+}
+
+<header>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+    </style>
+
+
+
+</header>
+
+<main>
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-4">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Pots</h1>
+                <p class="lead text-muted">here you can see your pots  </p>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            @for (int i = 0; i < potsName.Count(); i++)
+            {
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top"> <img src="@potsImage[i]" alt="@potsName[i]" /></svg>
+                            <div class="card-body">
+                                <p class="card-text">Pot @potsName[i] is filled with @potsName[i] </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="1c btn btn-sm btn-outline-secondary"><a class="nav-link text-dark" asp-area="" asp-controller="Plants" asp-action="Plants">Change</a></button>
+
+                                    </div>
+                                    <small class="text-muted">9 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</main>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

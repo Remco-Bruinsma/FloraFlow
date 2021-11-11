@@ -6,7 +6,8 @@
 @{
     ViewBag.Title = "SelectCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<string> plants = ViewData["plants"] as List<string>;
+    List<string> plantsName = ViewData["plants"] as List<string>;
+    List<string> plantsImage = ViewData["plants"] as List<string>;
 }
 
 <header>
@@ -47,18 +48,21 @@
 
     <div class="album py-5 bg-light">
         <div class="container">
-            @for (int i = 0; i < plants.Count(); i++)
+            @for (int i = 0; i < plantsName.Count(); i++)
             {
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
                     <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder: 1" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">1</text></svg>
+                        <svg class="bd-placeholder-img card-img-top"> <img src="@plantsImage[i]" alt="@plantsName[i]" /></svg>
                         <div class="card-body">
-                            <p class="card-text">pot @{int count = i + 1;} @count is filled with @plants[i] </p>
+                            <p class="card-text">Plant @{int count = i + 1;} @count is filled with @plantsName[i] </p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="1c btn btn-sm btn-outline-secondary" value="First" asp-controller="Home" asp-action="pots">Change</button>
-                                    <button type="button" class="1v btn btn-sm btn-outline-secondary">view</button>
+                                    @*<button type="button" class="1c btn btn-sm btn-outline-secondary" value="First" asp-controller="Home" asp-action="pots">Change</button>*@
+                                    <form action="/toonDetailPlant.php" method="GET">
+                                        <input type="submit" value="1">
+                                    </form>
+                                    @*<button type="button" class="1v btn btn-sm btn-outline-secondary">view</button>*@
                                 </div>
                                 <small class="text-muted">9 hours ago</small>
                             </div>

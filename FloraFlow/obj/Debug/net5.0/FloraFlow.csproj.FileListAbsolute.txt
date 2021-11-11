@@ -13,7 +13,6 @@ C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\FloraFlow.TagHelpers.output.cache
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\FloraFlow.RazorCoreGenerate.cache
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\Home\Pots.cshtml.g.cs
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\Plants\Plants.cshtml.g.cs
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
@@ -52,3 +51,4 @@ C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\bin\Debug
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\FloraFlow.Views.pdb
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\FloraFlow.csproj.CopyComplete
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\FloraFlow.genruntimeconfig.cache
+C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\Pots\Pots.cshtml.g.cs
