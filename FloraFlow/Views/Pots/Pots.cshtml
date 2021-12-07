@@ -4,11 +4,13 @@
 @using System.Net;
 @using FloraFlow.Models;
 
+
 @{
     ViewBag.Title = "SelectCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<Potmodel> Pots = ViewData["pots"] as List<Potmodel>;
     //List<string> potsImage = ViewData["pots"] as List<string>;
+    var potsJsons = (QuickType2.PotsJson[])ViewData["potsJson"];
 }
 
 <header>
@@ -41,19 +43,20 @@
     <div>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @for (int i = 0; i < Pots.Count(); i++)
+                @*here i put in the loop to make my label html based on the input of the pots *@
+                @foreach (QuickType2.PotsJson potsJson in potsJsons)
                 {
 
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="card shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top"> <img src="@Pots[i].Plant.Url" alt="@Pots[i].Plant.Plant_name"style="width:300px;height:300px;" /></svg>
+                                <svg class="bd-placeholder-img card-img-top"> <img src="@potsJson.Plant.Url" alt="@potsJson.Plant.PlantName" style="width:300px;height:300px;" /></svg>
                                 <div class="card-body">
-                                    <p class="card-text">Pot @Pots[i].ID is filled with @Pots[i].Plant.Plant_name </p>
+                                    <p class="card-text">Pot @potsJson.PotId is filled with @potsJson.Plant.PlantName </p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="@Url.Action("ChangePot", "Pots", new { pot = Pots[i].ID})" class="btn btn-success">Change</a>
-                                            @*<button type="button" class="1c btn btn-sm btn-outline-secondary"><a class="nav-link text-dark" asp-area="" asp-controller="Plants" asp-action="Plants">Change</a></button>*@
+                                            <a href="@Url.Action("ChangePot", "Pots", new { pot = potsJson.PotId})" class="btn btn-success">Change</a>
+
 
                                         </div>
                                         <small class="text-muted">9 hours ago</small>
@@ -64,9 +67,39 @@
                     </div>
 
                 }
+                @* @for (int i = 0; i < Pots.Count(); i++)
+        {
+
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top"> <img src="@Pots[i].Plant.Url" alt="@Pots[i].Plant.Plant_name" style="width:300px;height:300px;" /></svg>
+                        <div class="card-body">
+                            <p class="card-text">Pot @Pots[i].Pot_ID is filled with @Pots[i].Plant.Plant_name </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="@Url.Action("ChangePot", "Pots", new { pot = Pots[i].Pot_ID})" class="btn btn-success">Change</a>
+
+
+                                </div>
+                                <small class="text-muted">9 hours ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }*@
             </div>
         </div>
     </div>
+  
+    
+    <footer>
+        <div class="btn-group">
+            <a href="@Url.Action("AddPot", "Pots")" class="btn btn-success">add pot</a>
+        </div>
+    </footer>
 </main>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap-grid.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">

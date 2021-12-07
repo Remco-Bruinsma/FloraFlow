@@ -8,21 +8,14 @@ namespace FloraFlow
 {
     public class ImportPlants
     {
-        private static MySqlConnection databaseConnection = new MySqlConnection("Datasource=127.0.0.1;port=3306;username=root;password=;database= floraflow;");
-        public static void Check_databaseConnectionState(MySqlConnection databaseConnection)
-        {
-            if (databaseConnection.State == System.Data.ConnectionState.Open)
-            {
-                databaseConnection.Close();
-            }
-        }
+        private static MySqlConnection databaseConnection = new MySqlConnection("Datasource=127.0.0.1;port=3306;username=root;password=;database= floraflow;"/*"Datasource=192.168.160.124;port=3306;username=AppUser;password=@ppUs3r123;database= floraflow"*/);
         public static List<string> ImportPlantNames()
         {
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT `plantName` FROM `plants`");
-            Check_databaseConnectionState(databaseConnection);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT `plant_name` FROM `plants`");
             List<string> results = new List<string> { };
             try
             {
+                //here i try to conect to the server and closeing it so it doesnt use alot of bandwidth 
                 sqlCommand.Connection = databaseConnection;
                 databaseConnection.Open();
                 MySqlDataReader executeString = sqlCommand.ExecuteReader();
@@ -43,10 +36,10 @@ namespace FloraFlow
             }
 
         }
+        //here i import the images in my c# 
         public static List<string> ImportPlantImg()
         {
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT `images` FROM `plants`");
-            Check_databaseConnectionState(databaseConnection);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT `url` FROM `plants`");
             List<string> results = new List<string> { };
             try
             {

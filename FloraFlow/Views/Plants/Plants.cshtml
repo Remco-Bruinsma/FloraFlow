@@ -6,7 +6,8 @@
 @{
     ViewBag.Title = "SelectCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<PlantModel> plants = ViewData["plants"] as List<PlantModel>;
+    List<int> plants = ViewData["plants"] as List<int>;
+    var plantsJsons = (QuickType.PlantsJson[])ViewData["plantJson"];
 }
 
 <header>
@@ -88,38 +89,60 @@
 </header>
 
 <main>
+    <body data-bs-spy="scroll" data-bs-offset="200">
+        <section class="py-5 text-center container">
+            <div class="row py-lg-4">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Plants</h1>
+                    <p class="lead text-muted">pick you new flower  </p>
 
-    <section class="py-5 text-center container">
-        <div class="row py-lg-4">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Plants</h1>
-                <p class="lead text-muted">pick you new flower  </p>
-
+                </div>
             </div>
-        </div>
-    </section>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            @for (int i = 0; i < plants.Count(); i++)
-            {
+        </section>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                @*here i put in the loop to put in the html flipcards based on the sql input *@
+               @* @for (int i = 0; i < plants.Count(); i++)
+                {
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="@plants[i].Url" alt="@plants[i].Plant_name" style="width:300px;height:300px;" />
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>"@plants[i].Plant_name"</h1>
+                                <p>Plant descriptie</p>
+                                <p>We love that plant</p>
+                                <div class="btn-group">
+                                    <a href="@Url.Action("FillPot", "Pots", new { plant = plants[i].Plant_name })" class="btn btn-success">Add to pot</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }*@
+                @foreach(QuickType.PlantsJson plantsJson in plantsJsons)
+                {
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="@plants[i].Url" alt="@plants[i].Plant_name" style="width:300px;height:300px;" />
+                            <img src="@plantsJson.Url" alt="@plantsJson.PlantName" style="width:300px;height:300px;" />
                         </div>
                         <div class="flip-card-back">
-                            <h1>"@plants[i].Plant_name"</h1>
+                            <h1>"@plantsJson.PlantName"</h1>
                             <p>Plant descriptie</p>
                             <p>We love that plant</p>
                             <div class="btn-group">
-                                <a href="@Url.Action("FillPot", "Pots", new { plant = plants[i].Plant_name })" class="btn btn-success">Add to pot</a>
+                                <a href="@Url.Action("Changeplants", "Plants", new { plant = plantsJson.Id })" class="btn btn-success">Add to pot</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            }
+                }
+            </div>
         </div>
-    </div>
+        
+        
+    </body>
 </main>
 
 

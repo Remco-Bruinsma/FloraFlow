@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace FloraFlow.Controllers
 {
+    //here i redirect my navbar buttons to the right webpage 
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,6 +28,7 @@ namespace FloraFlow.Controllers
         {
             return View();
         }
+        //here is the error check 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

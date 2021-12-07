@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.27" />
+    <PackageReference Include="MySQL.Data.Entities" Version="6.8.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 

@@ -5,21 +5,19 @@ using System.Threading.Tasks;
 
 namespace FloraFlow.Models
 {
+    //this is the model i use for my pots, this is the blueprint i use to make a new pot 
     public class Potmodel
     {
-        public int ID { get; set; }
-        public int Amount { get; set; }
-        public PlantModel Plant { get; set; }
-/*        public Potmodel(int pot, int amount, string name, int water, int milliseconds, string description)
-        {
-            this.Pot = pot;
-            this.Amount = amount;
-            this.Plant_name = name;
-            this.Use_of_water = water;
-            this.Time_delay = milliseconds;
-            this.Plant_description = description;
+        
 
-        }*/
+        /*public CustomerModel Customer { get; set; }*/
+        public int Pot_ID { get; set; } = 0;
+        public int Amount { get; set; } = 0;
+        public PlantModel Plant { get; set; }
+        public int Soil_hydration { get; set; } = 0;
+
     }
+
+
    
 }

@@ -1,0 +1,91 @@
+﻿@page
+@model FloraFlow.Views.Pots.AddPotsModel
+@{
+    var pot_number = "pot_number";
+    var plant_amount = "plant_amount";
+    
+
+   @* if (IsPost)
+    {
+        title = Request.Form["title"];
+        genre = Request.Form["genre"];
+        year = Request.Form["year"];
+
+        var db = Database.Open("WebPagesMovies");
+        var insertCommand = "INSERT INTO Movies (Title, Genre, Year) Values(@0, @1, @2)";
+        db.Execute(insertCommand, title, genre, year);
+        Response.Redirect("~/Movies");
+    }*@
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Checkout example · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+</head>
+
+
+
+</html>
+<div class="col-md-7 col-lg-8">
+    <h4 class="mb-3">add pot</h4>
+    <form method="post">
+        <form class="needs-validation" novalidate>
+            <fieldset>
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="pot_number" class="form-label">pot number</label>
+                        <input type="number" class="form-control" id="pot_number" placeholder="" value="value=" @Request.Form["pot_number"] "" required>
+                        <div class="invalid-feedback">
+                            Valid pot number is required.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="plant_amount" class="form-label">plant amount</label>
+                        <input type="number" class="form-control" id="plant_amount" placeholder="" value="value=" @Request.Form["plant_amount"] "" required>
+                        <div class="invalid-feedback">
+                            Valid plant amount is required.
+                        </div>
+                        <div>
+                            .
+                        </div>
+                    </div>
+                    <button class="w-100 btn btn-primary btn-lg" name="buttonSubmit" type="submit">Continue</button>
+            </fieldset>
+        </form>
+    </form>
+</div>
+
+
+
+<script src="../wwwroot/js/form-validation.js"</script>
+
+<script src="form-validation.js"></script>
+
+</html>
