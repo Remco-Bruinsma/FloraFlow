@@ -8,7 +8,7 @@
 @{
     ViewBag.Title = "SelectCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<Potmodel> Pots = ViewData["pots"] as List<Potmodel>;
+    List<PotModel> Pots = ViewData["pots"] as List<PotModel>;
     //List<string> potsImage = ViewData["pots"] as List<string>;
     var potsJsons = (QuickType2.PotsJson[])ViewData["potsJson"];
 }

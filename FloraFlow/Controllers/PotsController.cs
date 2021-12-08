@@ -23,8 +23,7 @@ namespace FloraFlow.Controllers
             {
                 string jsonString = webClient.DownloadString("https://localhost:44350/api/Pots");
                 var potsjson = PotsJson.FromJson(jsonString);
-                ViewData["potsJson"] = potsjson;
-                
+                ViewData["potsJson"] = potsjson;        
             }
            /* //her i use the methode dbclass to retreave the id of the plant in the pots
             List<Potmodel> pots = new List<Potmodel> { };

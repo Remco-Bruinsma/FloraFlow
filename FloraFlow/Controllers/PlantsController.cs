@@ -94,10 +94,9 @@ namespace FloraFlow.Controllers
         }*/
         public IActionResult Changeplants(int plant)
         {
-
             ViewData["plant"] = plant;
             TempData["plant"] = plant;
-            return RedirectToAction("Pots", "Pots", new { area = "" });
+            return RedirectToAction("UpdatePot", "AsignPlant", new { area = "" });
         }
 
     }
