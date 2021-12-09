@@ -1,0 +1,66 @@
+﻿@using System.Collections.Generic;
+@using System.ComponentModel.DataAnnotations;
+@using System.Net;
+@using FloraFlow.Models;
+
+
+@{
+    ViewBag.Title = "SelectCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+@model User
+
+@using (Html.BeginForm("SignIn", "LoginEnRegister", FormMethod.Post, new { id = "form1" }))
+{
+    <table>
+        <tr>
+            <td>
+                UserName:
+            </td>
+            <td>
+                @Html.TextBox("UserId")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                @Html.Password("Password")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="login" name="login" />
+            </td>
+        </tr>
+    </table>
+}
+<!--<link rel="stylesheet" href="/css/login.css">
+<script src="~/js/login.js"></script>
+
+<div class="login-box">
+    <div class="lb-header">
+        <a href="#" class="active" id="login-box-link">Login</a>
+        <a href="#" id="signup-box-link">Sign Up</a>
+    </div>
+
+    <form method="POST" action="page.aspx">
+        <div class="u-form-group">-->
+@*<input class="form-control" id="User" name="User" type="text" value="" />*@
+<!--@Html.TextBoxFor(m => m.UserId, new { @class = "form-control" })
+</div>
+<div class="u-form-group">-->
+@*<input id="Password" name="Password" type="password" value="" />*@
+<!--@Html.PasswordFor(m => m.Password)
+
+        </div>
+        <div class="u-form-group">
+            <a href="@Url.Action("ChangePot", "Pots", new { area = "" })" class="btn btn-success">Change</a>
+        </div>
+    </form>
+
+</div>-->

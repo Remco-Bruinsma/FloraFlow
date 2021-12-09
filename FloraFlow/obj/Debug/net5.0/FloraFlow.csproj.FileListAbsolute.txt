@@ -62,3 +62,5 @@ C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\bin\Debug
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\bin\Debug\net5.0\EntityFramework.dll
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\bin\Debug\net5.0\mysql.data.entity.EF6.dll
 C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\LoginEnRegister\Inlog.cshtml.g.cs
+C:\Users\Torem\Documents\semester 2\groeps project\FloraFlow\FloraFlow\obj\Debug\net5.0\Razor\Views\LoginEnRegister\Register.cshtml.g.cs

@@ -43,7 +43,7 @@ namespace FloraFlow.Controllers
 
 
         }
-        [HttpGet("api/changeplant")]
+        /*[HttpGet("api/changeplant")]
         public List<changepotmodel> Get()
         {
            
@@ -55,7 +55,7 @@ namespace FloraFlow.Controllers
 
             change.Add(chpo);
             return change;
-        }
+        }*/
         /*[HttpGet("api/changeplant")]
         public List<Potmodel> Get(PlantModel plant)
         {
