@@ -1,7 +1,9 @@
 ﻿using FloraFlow.Classes;
 using FloraFlow.Models;
 using Microsoft.AspNetCore.Mvc;
-using QuickType2;
+using Newtonsoft.Json;
+using PotJson_QuickType;
+using UserPotModel_QuickType;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+
 
 namespace FloraFlow.Controllers
 {
@@ -19,7 +22,7 @@ namespace FloraFlow.Controllers
 
         public IActionResult Pots()
         {
-           
+
             /* //her i use the methode dbclass to retreave the id of the plant in the pots
              List<Potmodel> pots = new List<Potmodel> { };
              List<string> potIDs = DbClass.GetFromDb("SELECT `pot_id` FROM `pots`");
@@ -34,15 +37,15 @@ namespace FloraFlow.Controllers
              }
             ViewData["pots"] = pots;*/
 
-            int key = 0;
 
-            if (key == 0)
+
+            if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
             {
-                return View("~/Views/LoginEnRegister/Inlog.cshtml");
+                return RedirectToAction("Getuserpots", "Pots", new { area = "" });
             }
             else
             {
-                return View("~/Views/Pots/Pots.cshtml");
+                return View("~/Views/LoginEnRegister/Inlog.cshtml");
             }
 
 
@@ -60,17 +63,18 @@ namespace FloraFlow.Controllers
         //here i cahnge my pots based on the input of the buttons  
         public IActionResult ChangePot(int pot)
         {
-            var key = TempData["key"];
-            if (key == "0")
+
+            if(Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
             {
-                return View("~/Views/LoginEnRegister/Inlog.cshtml");
-            }
-            else
-            {
-                TempData["key"] = key;
                 ViewData["pot"] = pot;
                 TempData["pot"] = pot;
                 return RedirectToAction("Plants", "Plants", new { area = "" });
+                
+            }
+            else
+            {
+
+                return View("~/Views/LoginEnRegister/Inlog.cshtml");
 
             }
            
@@ -88,25 +92,52 @@ namespace FloraFlow.Controllers
         {
             using (var webClient = new WebClient())
             {
-                var key = TempData["key"];
-                if (key == "0")
+                if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
                 {
-                    return View("~/Views/LoginEnRegister/Inlog.cshtml");
+                    return RedirectToAction("Getuserpots", "Pots", new { area = "" });
                 }
                 else
                 {
-                    TempData["key"] = key;
-                    string jsonString = webClient.DownloadString("https://localhost:44350/api/Pots");
-                    var potsjson = PotsJson.FromJson(jsonString);
-                    ViewData["potsJson"] = potsjson;
-                    return View("~/Views/Pots/Pots.cshtml");
-                    
-                }
-                
 
-                
+                    return View("~/Views/LoginEnRegister/Inlog.cshtml");
+                }
+
             }
 
+        }
+        private static readonly HttpClient client = new HttpClient();
+        public async Task<IActionResult> Getuserpots()
+        {
+            string UserId = Request.Cookies["Userid"];
+            string password = Request.Cookies["password"];
+
+            var loginkeys = new Dictionary<string, string>
+            {
+                { "Userid", ""+UserId+"" },
+                { "password", ""+password+"" }
+            };
+            var content = new FormUrlEncodedContent(loginkeys);
+            var response = await client.PostAsync($"https://localhost:44350/getuserspots", content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            var newuserpotmodel = UserPotModel.FromJson(responseString);
+            List<UserPotModels> userpots = new List<UserPotModels>();
+            userpots.AddRange(newuserpotmodel);
+            if (userpots != null)
+            {
+                ViewData["userpot"] = userpots;
+                return View("~/Views/Pots/Pots.cshtml");
+            }
+            else
+            {
+                return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
+            }
+            
+            
+            
+
+            
+
+            
         }
     }
 }

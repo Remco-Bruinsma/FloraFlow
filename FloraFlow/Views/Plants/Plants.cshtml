@@ -7,7 +7,7 @@
     ViewBag.Title = "SelectCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<int> plants = ViewData["plants"] as List<int>;
-    var plantsJsons = (QuickType.PlantsJson[])ViewData["plantJson"];
+    var plantsJsons = (PlantJson_QuickType.PlantsJson[])ViewData["plantJson"];
 }
 
 <header>
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                 }*@
-                @foreach(QuickType.PlantsJson plantsJson in plantsJsons)
+                @foreach(PlantJson_QuickType.PlantsJson plantsJson in plantsJsons)
                 {
                 <div class="flip-card">
                     <div class="flip-card-inner">
@@ -132,7 +132,7 @@
                             <p>Plant descriptie</p>
                             <p>We love that plant</p>
                             <div class="btn-group">
-                                <a href="@Url.Action("Changeplants", "Plants", new { plant = plantsJson.Id })" class="btn btn-success">Add to pot</a>
+                                <a href="@Url.Action("Changeplants", "Plants", new { plant = plantsJson.Id, })" class="btn btn-success">Add to pot</a>
                             </div>
                         </div>
                     </div>

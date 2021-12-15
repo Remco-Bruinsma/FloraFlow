@@ -1,7 +1,7 @@
 ﻿using FloraFlow.Classes;
 using FloraFlow.Models;
 using Microsoft.AspNetCore.Mvc;
-using QuickType;
+using PlantJson_QuickType;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,6 +94,7 @@ namespace FloraFlow.Controllers
         }*/
         public IActionResult Changeplants(int plant)
         {
+            
             ViewData["plant"] = plant;
             TempData["plant"] = plant;
             return RedirectToAction("UpdatePot", "AsignPlant", new { area = "" });

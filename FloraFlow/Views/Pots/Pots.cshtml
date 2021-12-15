@@ -3,14 +3,19 @@
 @using System.ComponentModel.DataAnnotations;
 @using System.Net;
 @using FloraFlow.Models;
+@using UserPotModel_QuickType;
 
 
 @{
     ViewBag.Title = "SelectCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<PotModel> Pots = ViewData["pots"] as List<PotModel>;
-    //List<string> potsImage = ViewData["pots"] as List<string>;
-    var potsJsons = (QuickType2.PotsJson[])ViewData["potsJson"];
+   @* List<PotModel> Pots = ViewData["pots"] as List<PotModel>;
+    var potsJsons = (PotJson_QuickType.PotsJson[])ViewData["potsJson"];*@
+
+List<UserPotModels> Pots = ViewData["userpot"] as List<UserPotModels>;
+Console.WriteLine(Pots);
+
+    @*var potsJsons = (UserPotModel_QuickType.UserPotModels[])ViewData["userpot"];*@
 }
 
 <header>
@@ -43,19 +48,19 @@
     <div>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @*here i put in the loop to make my label html based on the input of the pots *@
-                @foreach (QuickType2.PotsJson potsJson in potsJsons)
+                @*here i put in the loop to make my label html based on the input of the pots*@
+                @foreach ( UserPotModels pot in Pots)
                 {
 
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="card shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top"> <img src="@potsJson.Plant.Url" alt="@potsJson.Plant.PlantName" style="width:300px;height:300px;" /></svg>
+                                <svg class="bd-placeholder-img card-img-top"> <img src="@pot.Plant.Url" alt="@pot.Plant.PlantName" style="width:300px;height:300px;" /></svg>
                                 <div class="card-body">
-                                    <p class="card-text">Pot @potsJson.PotId is filled with @potsJson.Plant.PlantName </p>
+                                    <p class="card-text">Pot @pot.PotId filled with @pot.Plant.PlantName</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="@Url.Action("ChangePot", "Pots", new { pot = potsJson.PotId})" class="btn btn-success">Change</a>
+                                            <a href="@Url.Action("ChangePot", "Pots", new { pot = pot.PotId})" class="btn btn-success">Change</a>
 
 
                                         </div>

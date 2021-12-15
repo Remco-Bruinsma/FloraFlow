@@ -6,11 +6,10 @@
 //
 //    var plantsJson = PlantsJson.FromJson(jsonString);
 
-namespace QuickType
+namespace PlantJson_QuickType
 {
     using System;
     using System.Collections.Generic;
-
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
@@ -41,12 +40,12 @@ namespace QuickType
 
     public partial class PlantsJson
     {
-        public static PlantsJson[] FromJson(string json) => JsonConvert.DeserializeObject<PlantsJson[]>(json, QuickType.Converter.Settings);
+        public static PlantsJson[] FromJson(string json) => JsonConvert.DeserializeObject<PlantsJson[]>(json, PlantJson_QuickType.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this PlantsJson[] self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
+        public static string ToJson(this PlantsJson[] self) => JsonConvert.SerializeObject(self, PlantJson_QuickType.Converter.Settings);
     }
 
     internal static class Converter

@@ -6,7 +6,7 @@
 //
 //    var potsJson = PotsJson.FromJson(jsonString);
 
-namespace QuickType2
+namespace PotJson_QuickType
 {
     using System;
     using System.Collections.Generic;
@@ -56,12 +56,12 @@ namespace QuickType2
 
     public partial class PotsJson
     {
-        public static PotsJson[] FromJson(string json) => JsonConvert.DeserializeObject<PotsJson[]>(json, QuickType2.Converter.Settings);
+        public static PotsJson[] FromJson(string json) => JsonConvert.DeserializeObject<PotsJson[]>(json, PotJson_QuickType.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this PotsJson[] self) => JsonConvert.SerializeObject(self, QuickType2.Converter.Settings);
+        public static string ToJson(this PotsJson[] self) => JsonConvert.SerializeObject(self, PotJson_QuickType.Converter.Settings);
     }
 
     internal static class Converter

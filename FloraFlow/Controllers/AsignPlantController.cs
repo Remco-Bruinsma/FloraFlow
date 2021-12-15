@@ -25,7 +25,7 @@ namespace FloraFlow.Controllers
             var content = new FormUrlEncodedContent(PotAndPlant);
             var response = await client.PostAsync("https://localhost:44350/UpdatePot", content);
             var responseString = await response.Content.ReadAsStringAsync();
-            return RedirectToAction("Pots2", "Pots", new { area = "" });
+            return RedirectToAction("Getuserpots", "Pots", new { area = "" });
         }
     }
 }
