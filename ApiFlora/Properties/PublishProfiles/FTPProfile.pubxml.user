@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAADDJ3pm3L0axDYDHq9sZzQAAAAACAAAAAAAQZgAAAAEAACAAAAA4Uwd294v78KxE59po2j31yqKV511HHjLjy/Eruzso/wAAAAAOgAAAAAIAACAAAACVtIpQO/8LOlZiSNDjOQLUp6GmceP8bLVTLOi6d0IcPSAAAADZ87Xk2wOORjc3r46v1IU06g9BI9SC3e6G45ttywV4bEAAAACb9IqYAfkYdw43Mb6NMnpPkRORexXZPDAD/BwVxy55nyDEn5t2d+S/IdbP146AkvdI1KVGpely9YqMNThjfy9s</EncryptedPassword>
+    <_PublishTargetUrl>ftps://venus.fhict.nl:21/domains/app1351916core.venus.fhict.nl</_PublishTargetUrl>
+    <History>True|2021-12-10T14:38:23.8358046Z;True|2021-12-10T13:11:28.7693205+01:00;False|2021-12-10T13:08:45.9931680+01:00;False|2021-12-10T10:38:18.2981250+01:00;False|2021-12-10T10:32:20.1613419+01:00;False|2021-12-01T11:32:56.6107699+01:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApiFlora.deps.json">
+      <publishTime>12/10/2021 15:38:07</publishTime>
+    </File>
+    <File Include="ApiFlora.dll">
+      <publishTime>12/10/2021 15:38:06</publishTime>
+    </File>
+    <File Include="ApiFlora.exe">
+      <publishTime>12/10/2021 15:38:06</publishTime>
+    </File>
+    <File Include="ApiFlora.pdb">
+      <publishTime>12/10/2021 15:38:06</publishTime>
+    </File>
+    <File Include="ApiFlora.runtimeconfig.json">
+      <publishTime>12/10/2021 15:38:07</publishTime>
+    </File>
+    <File Include="appsettings.Development.json">
+      <publishTime>11/26/2021 13:41:21</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>11/26/2021 13:41:21</publishTime>
+    </File>
+    <File Include="BouncyCastle.Crypto.dll">
+      <publishTime>03/18/2019 12:53:36</publishTime>
+    </File>
+    <File Include="EntityFramework.dll">
+      <publishTime>04/16/2020 22:38:44</publishTime>
+    </File>
+    <File Include="EntityFramework.SqlServer.dll">
+      <publishTime>04/16/2020 22:39:00</publishTime>
+    </File>
+    <File Include="Google.Protobuf.dll">
+      <publishTime>11/13/2020 16:09:34</publishTime>
+    </File>
+    <File Include="K4os.Compression.LZ4.dll">
+      <publishTime>09/12/2020 03:11:58</publishTime>
+    </File>
+    <File Include="K4os.Compression.LZ4.Streams.dll">
+      <publishTime>09/12/2020 03:11:58</publishTime>
+    </File>
+    <File Include="K4os.Hash.xxHash.dll">
+      <publishTime>07/03/2019 22:39:02</publishTime>
+    </File>
+    <File Include="libman.json">
+      <publishTime>11/29/2021 14:16:22</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>08/29/2020 22:14:12</publishTime>
+    </File>
+    <File Include="MySql.Data.dll">
+      <publishTime>09/28/2021 07:29:52</publishTime>
+    </File>
+    <File Include="MySql.Data.EntityFramework.dll">
+      <publishTime>09/28/2021 07:29:52</publishTime>
+    </File>
+    <File Include="MySqlConnector.dll">
+      <publishTime>11/28/2021 08:45:42</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>03/17/2021 21:03:36</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>01/17/2020 19:41:36</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/sni.dll">
+      <publishTime>07/12/2017 13:24:24</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/sni.dll">
+      <publishTime>07/12/2017 13:24:22</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/sni.dll">
+      <publishTime>07/12/2017 13:24:22</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>01/17/2020 19:41:44</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>11/15/2019 09:53:46</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>09/23/2020 14:47:20</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>09/23/2020 14:47:22</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>09/23/2020 14:47:24</publishTime>
+    </File>
+    <File Include="System.CodeDom.dll">
+      <publishTime>11/15/2019 09:36:56</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>11/15/2019 09:37:04</publishTime>
+    </File>
+    <File Include="System.Data.SqlClient.dll">
+      <publishTime>01/17/2020 19:28:34</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>11/15/2019 09:37:42</publishTime>
+    </File>
+    <File Include="Ubiety.Dns.Core.dll">
+      <publishTime>09/28/2021 07:28:28</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>12/10/2021 15:38:08</publishTime>
+    </File>
+    <File Include="ZstdNet.dll">
+      <publishTime>09/28/2021 07:28:28</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -18,25 +18,8 @@ namespace FloraFlow.Controllers
     public class PotsController : Controller
     {
 
-
-
         public IActionResult Pots()
         {
-
-            /* //her i use the methode dbclass to retreave the id of the plant in the pots
-             List<Potmodel> pots = new List<Potmodel> { };
-             List<string> potIDs = DbClass.GetFromDb("SELECT `pot_id` FROM `pots`");
-             //here i get my pots from mysql
-             foreach ( string pot in potIDs)
-             {
-                 List<string> plantID = DbClass.GetFromDb("SELECT `plant` FROM `pots` WHERE `pot_id` = '"+pot+"'");
-                 List<string> plant = DbClass.GetFromDb("SELECT * FROM `plants` WHERE `id` = "+plantID[0]+"");
-                 PlantModel plantModel = new PlantModel { Plant_name = plant[1],Url = plant[5]};
-                 Potmodel Pot = new Potmodel { Pot_ID = Convert.ToInt32(pot), Amount = 1, Plant = plantModel };
-                 pots.Add(Pot);
-             }
-            ViewData["pots"] = pots;*/
-
 
 
             if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
@@ -53,10 +36,6 @@ namespace FloraFlow.Controllers
         //here i fill in my new pots 
         public IActionResult FillPot(PlantModel plant)
         {
-
-            /*  int pot = (int)TempData["pot"];
-              *//*List<string> plantId = DbClass.GetFromDb("SELECT id FROM `plants` WHERE `id` LIKE '" + plant + "'");*//*
-              DbClass.StoreDb("UPDATE `pots` SET `plant` = '" + plant + "' WHERE `pots`.`pot_id` = " + pot + ";");*/
 
             return RedirectToAction("Pots", "Pots", new { area = "" });
         }
@@ -98,7 +77,6 @@ namespace FloraFlow.Controllers
                 }
                 else
                 {
-
                     return View("~/Views/LoginEnRegister/Inlog.cshtml");
                 }
 

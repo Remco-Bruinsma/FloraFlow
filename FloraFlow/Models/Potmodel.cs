@@ -9,7 +9,6 @@ namespace FloraFlow.Models
     public class PotModel
     {
         
-
         /*public CustomerModel Customer { get; set; }*/
         public int Pot_ID { get; set; } = 0;
         public int Amount { get; set; } = 0;

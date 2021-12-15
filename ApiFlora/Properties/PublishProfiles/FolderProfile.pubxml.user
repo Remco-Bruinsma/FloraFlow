@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Torem\Desktop</_PublishTargetUrl>
+    <History>False|2021-12-10T08:24:56.2709455Z;True|2021-12-01T10:35:21.8820995+01:00;</History>
+  </PropertyGroup>
+</Project>

@@ -15,8 +15,5 @@ namespace FloraFlow.Models
         public string Url { get; set; } 
         public int Hydration_needed { get; set; } 
 
-        
-      
-
     }
 }

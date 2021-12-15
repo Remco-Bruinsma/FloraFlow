@@ -72,29 +72,7 @@ Console.WriteLine(Pots);
                     </div>
 
                 }
-                @* @for (int i = 0; i < Pots.Count(); i++)
-        {
-
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top"> <img src="@Pots[i].Plant.Url" alt="@Pots[i].Plant.Plant_name" style="width:300px;height:300px;" /></svg>
-                        <div class="card-body">
-                            <p class="card-text">Pot @Pots[i].Pot_ID is filled with @Pots[i].Plant.Plant_name </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="@Url.Action("ChangePot", "Pots", new { pot = Pots[i].Pot_ID})" class="btn btn-success">Change</a>
-
-
-                                </div>
-                                <small class="text-muted">9 hours ago</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        }*@
+     
             </div>
         </div>
     </div>
@@ -105,6 +83,11 @@ Console.WriteLine(Pots);
             <a href="@Url.Action("AddPot", "Pots")" class="btn btn-success">add pot</a>
         </div>
     </footer>
+    <div>
+        -
+    </div>
+    <div>-</div>
+
 </main>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap-grid.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
