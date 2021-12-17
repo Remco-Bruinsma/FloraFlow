@@ -60,7 +60,23 @@ namespace FloraFlow.Controllers
 
             return RedirectToAction("SignIn", "LoginEnRegister",new { area = "" });
         }
-        [HttpPost]
+        public async Task<IActionResult> Register(User obj)
+        {
+            string reUserId = obj.UserId;
+            string repassword = obj.Password;
+
+            var loginkeys = new Dictionary<string, string>
+            {
+                { "reUserid", ""+reUserId+"" },
+                { "repassword", ""+repassword+"" }
+            };
+            var content = new FormUrlEncodedContent(loginkeys);
+            var response = await client.PostAsync($"https://localhost:44350/addaccount", content);
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            return RedirectToAction("SignIn", "LoginEnRegister", new { area = "" });
+        }
+
         public IActionResult CookiesDeleter()
         {
             Response.Cookies.Delete("Userid");
@@ -68,7 +84,18 @@ namespace FloraFlow.Controllers
             return View("~/Views/LoginEnRegister/Inlog.cshtml");
            
         }
-       
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("Userid");
+            Response.Cookies.Delete("password");
+            return View("~/Views/LoginEnRegister/Inlog.cshtml");
+        }
+        
+        public IActionResult ToRegisterView()
+        {
+            return View("~/Views/LoginEnRegister/register.cshtml");
+        }
+
 
     }
 }

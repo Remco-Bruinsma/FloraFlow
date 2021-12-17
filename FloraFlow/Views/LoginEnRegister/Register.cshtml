@@ -4,26 +4,34 @@
 @using FloraFlow.Models;
 @{
 }
-<link rel="stylesheet" href="/css/login.css">
-<script src="~/js/login.js"></script>
 
-<div class="login-box">
-    <div class="lb-header">
-        <a href="#" class="active" id="login-box-link">Login</a>
-        <a href="#" id="signup-box-link">Sign Up</a>
-    </div>
-    <form class="email-signup">
-        <div class="u-form-group">
-            <input type="email" placeholder="Email" />
-        </div>
-        <div class="u-form-group">
-            <input type="password" placeholder="Password" />
-        </div>
-        <div class="u-form-group">
-            <input type="password" placeholder="Confirm Password" />
-        </div>
-        <div class="u-form-group">
-            <button>Sign Up</button>
-        </div>
-    </form>
-</div>
+<h1>Register</h1>
+
+@model User
+
+@using (Html.BeginForm("register", "LoginEnRegister", FormMethod.Post, new { id = "form1" }))
+{
+    <table>
+        <tr>
+            <td>
+                UserName:
+            </td>
+            <td>
+                @Html.TextBox("UserId")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                @Html.Password("Password")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="register" name="register" />
+            </td>
+        </tr>
+    </table>
+}

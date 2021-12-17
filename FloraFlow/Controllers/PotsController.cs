@@ -28,7 +28,7 @@ namespace FloraFlow.Controllers
             }
             else
             {
-                return View("~/Views/LoginEnRegister/Inlog.cshtml");
+                return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
             }
 
 
@@ -53,14 +53,54 @@ namespace FloraFlow.Controllers
             else
             {
 
-                return View("~/Views/LoginEnRegister/Inlog.cshtml");
+                return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
 
             }
            
         }
-        public IActionResult Addpot()
+        public async Task<IActionResult> RemovePot(int pot)
         {
-            return View("~/Views/Pots/AddPots.cshtml");
+            if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
+            {
+                string UserId = Request.Cookies["Userid"];
+                string password = Request.Cookies["password"];
+                string removepot = pot.ToString();
+                var loginkeys = new Dictionary<string, string>
+                {
+                    { "Userid", ""+UserId+"" },
+                    { "password", ""+password+"" },
+                    {"removedpot",""+removepot+"" }
+                };
+                var content = new FormUrlEncodedContent(loginkeys);
+                var response = await client.PostAsync($"https://localhost:44350/removepots", content);
+                var responseString = await response.Content.ReadAsStringAsync();
+                return RedirectToAction("Pots", "Pots", new { area = "" });
+
+            }
+            else
+            {
+                return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
+            }
+            
+            
+
+        }
+        public async Task<IActionResult> Addpot()
+        {
+            string UserId = Request.Cookies["Userid"];
+            string password = Request.Cookies["password"];
+
+            var loginkeys = new Dictionary<string, string>
+            {
+                { "Userid", ""+UserId+"" },
+                { "password", ""+password+"" }
+            };
+            var content = new FormUrlEncodedContent(loginkeys);
+            var response = await client.PostAsync($"https://localhost:44350/addpots", content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            return RedirectToAction("Pots", "Pots", new { area = "" });
+
+
         }
         public IActionResult Applypot()
         {
@@ -77,7 +117,7 @@ namespace FloraFlow.Controllers
                 }
                 else
                 {
-                    return View("~/Views/LoginEnRegister/Inlog.cshtml");
+                    return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
                 }
 
             }

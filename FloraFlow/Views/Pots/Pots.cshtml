@@ -9,13 +9,12 @@
 @{
     ViewBag.Title = "SelectCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
-   @* List<PotModel> Pots = ViewData["pots"] as List<PotModel>;
-    var potsJsons = (PotJson_QuickType.PotsJson[])ViewData["potsJson"];*@
+  
 
 List<UserPotModels> Pots = ViewData["userpot"] as List<UserPotModels>;
 Console.WriteLine(Pots);
 
-    @*var potsJsons = (UserPotModel_QuickType.UserPotModels[])ViewData["userpot"];*@
+    
 }
 
 <header>
@@ -64,7 +63,7 @@ Console.WriteLine(Pots);
 
 
                                         </div>
-                                        <small class="text-muted">9 hours ago</small>
+                                        <a href="@Url.Action("RemovePot", "Pots", new { pot = pot.PotId})" class="btn btn-success">Remove</a>
                                     </div>
                                 </div>
                             </div>
