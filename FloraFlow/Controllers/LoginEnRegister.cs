@@ -14,9 +14,6 @@ namespace FloraFlow.Controllers
         private static readonly HttpClient client = new HttpClient();
         public async Task<ActionResult> SignIn(User obj)
         {
-            //sign in and redirect to home page
-            /* string UserId = obj.UserId;
-             string password = obj.Password;*/
             string UserId = Request.Cookies["Userid"];
             string password = Request.Cookies["password"];
 
@@ -45,7 +42,6 @@ namespace FloraFlow.Controllers
 
             }
            
-            
 
         }
         [HttpPost]
