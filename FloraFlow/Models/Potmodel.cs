@@ -8,12 +8,16 @@ namespace FloraFlow.Models
     //this is the model i use for my pots, this is the blueprint i use to make a new pot 
     public class PotModel
     {
-        
+
         /*public CustomerModel Customer { get; set; }*/
-        public int Pot_ID { get; set; } = 0;
-        public int Amount { get; set; } = 0;
-        public PlantModel Plant { get; set; }
-        public int Soil_hydration { get; set; } = 0;
+        private int pot_ID;
+        private int amount;
+        private PlantModel plant;
+        private int soil_hydration;
+        public int Pot_ID { get=>pot_ID; set=>pot_ID=value; }
+        public int Amount{ get=>amount; set => amount = value; }
+        public PlantModel Plant{ get=>plant; set => plant = value; }
+        public int Soil_hydration{ get=>soil_hydration; set => soil_hydration = value; }
 
     }
 

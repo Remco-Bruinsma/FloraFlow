@@ -29,8 +29,8 @@ namespace UserPotModel_QuickType
         [JsonProperty("soil_hydration")]
         public long SoilHydration { get; set; }
 
-        [JsonProperty("customer_code")]
-        public string CustomerCode { get; set; }
+        /*[JsonProperty("customer_code")]
+        public string CustomerCode { get; set; }*/
     }
 
     public partial class Plant

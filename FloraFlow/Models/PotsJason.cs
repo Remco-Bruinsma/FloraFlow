@@ -8,6 +8,9 @@
 
 namespace PotJson_QuickType
 {
+
+}
+/*{
     using System;
     using System.Collections.Generic;
 
@@ -77,3 +80,4 @@ namespace PotJson_QuickType
         };
     }
 }
+*/
