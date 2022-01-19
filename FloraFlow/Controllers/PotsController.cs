@@ -1,8 +1,8 @@
-﻿using FloraFlow.Classes;
+﻿
 using FloraFlow.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using PotJson_QuickType;
+
 using UserPotModel_QuickType;
 using System;
 using System.Collections.Generic;
@@ -17,11 +17,8 @@ namespace FloraFlow.Controllers
 {
     public class PotsController : Controller
     {
-
-        public IActionResult Pots()
+        private IActionResult pots()
         {
-
-
             if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
             {
                 return RedirectToAction("Getuserpots", "Pots", new { area = "" });
@@ -31,34 +28,47 @@ namespace FloraFlow.Controllers
                 return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
             }
 
+        }
+        public IActionResult Pots()
+        {
+            return pots();
 
         }
         //here i fill in my new pots 
+        private IActionResult fillPot(PlantModel plant)
+        {
+            return RedirectToAction("Pots", "Pots", new { area = "" });
+
+        }
         public IActionResult FillPot(PlantModel plant)
         {
+            return fillPot(plant);
 
-            return RedirectToAction("Pots", "Pots", new { area = "" });
         }
         //here i cahnge my pots based on the input of the buttons  
-        public IActionResult ChangePot(int pot)
+        private IActionResult changePot(int pot)
         {
-
-            if(Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
+            if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
             {
                 ViewData["pot"] = pot;
                 TempData["pot"] = pot;
                 return RedirectToAction("Plants", "Plants", new { area = "" });
-                
+
             }
             else
             {
-
                 return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
 
             }
-           
+
         }
-        public async Task<IActionResult> RemovePot(int pot)
+        public IActionResult ChangePot(int pot)
+        {
+            return changePot(pot);
+
+        }
+
+        private async Task<IActionResult> removePot(int pot)
         {
             if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
             {
@@ -81,11 +91,14 @@ namespace FloraFlow.Controllers
             {
                 return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
             }
-            
-            
 
         }
-        public async Task<IActionResult> Addpot()
+        public async Task<IActionResult> RemovePot(int pot)
+        {
+            return await removePot(pot);
+
+        }
+        private async Task<IActionResult> addpot()
         {
             string UserId = Request.Cookies["Userid"];
             string password = Request.Cookies["password"];
@@ -100,31 +113,25 @@ namespace FloraFlow.Controllers
             var responseString = await response.Content.ReadAsStringAsync();
             return RedirectToAction("Pots", "Pots", new { area = "" });
 
+        }
+        public async Task<IActionResult> Addpot()
+        {
+            return await addpot();
+
+        }
+        private IActionResult applypot()
+        {
+            return View("~/Views/Pots/Pots.cshtml");
 
         }
         public IActionResult Applypot()
         {
-
-            return View("~/Views/Pots/Pots.cshtml");
-        }
-        public IActionResult Pots2()
-        {
-            using (var webClient = new WebClient())
-            {
-                if (Request.Cookies["UserId"] != null & Request.Cookies["password"] != null)
-                {
-                    return RedirectToAction("Getuserpots", "Pots", new { area = "" });
-                }
-                else
-                {
-                    return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
-                }
-
-            }
+            return applypot();
 
         }
+
         private static readonly HttpClient client = new HttpClient();
-        public async Task<IActionResult> Getuserpots()
+        private async Task<IActionResult> getuserpots()
         {
             string UserId = Request.Cookies["Userid"];
             string password = Request.Cookies["password"];
@@ -149,13 +156,12 @@ namespace FloraFlow.Controllers
             {
                 return RedirectToAction("CookiesDeleter", "LoginEnRegister", new { area = "" });
             }
-            
-            
-            
 
-            
+        }
+        public async Task<IActionResult> Getuserpots()
+        {
+            return await getuserpots();
 
-            
         }
     }
 }

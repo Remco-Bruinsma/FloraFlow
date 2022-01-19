@@ -12,7 +12,7 @@ namespace FloraFlow.Controllers
     public class LoginEnRegister : Controller
     {
         private static readonly HttpClient client = new HttpClient();
-        public async Task<ActionResult> SignIn(User obj)
+        private async Task<ActionResult> signIn(User obj)
         {
             string UserId = Request.Cookies["Userid"];
             string password = Request.Cookies["password"];
@@ -21,6 +21,7 @@ namespace FloraFlow.Controllers
             {
                 { "Userid", ""+UserId+"" },
                 { "password", ""+password+"" }
+
             };
             var content = new FormUrlEncodedContent(loginkeys);
             var response = await client.PostAsync("https://localhost:44350/code", content);
@@ -28,12 +29,12 @@ namespace FloraFlow.Controllers
             if (responseString == "Wrong Username or Password")
             {
                 return View("~/Views/LoginEnRegister/Inlog.cshtml");
+
             }
-            
             else if (responseString =="Right Username or Password")
             {
-                
                 return RedirectToAction("Getuserpots", "Pots", new { area = "" });
+
             }
             else
             {
@@ -41,22 +42,31 @@ namespace FloraFlow.Controllers
                 return View("~/Views/LoginEnRegister/Inlog.cshtml");
 
             }
-           
 
         }
-        [HttpPost]
-        public IActionResult Cookies(User obj)
+        public async Task<ActionResult> SignIn(User obj)
+        {
+            return await signIn(obj);
+
+        }
+        private IActionResult cookies(User obj)
         {
             string UserId = obj.UserId;
             string password = obj.Password;
             CookieOptions options = new CookieOptions();
             options.Expires = DateTime.Now.AddDays(1);
-            Response.Cookies.Append("Userid", UserId,options);
+            Response.Cookies.Append("Userid", UserId, options);
             Response.Cookies.Append("password", password, options);
 
-            return RedirectToAction("SignIn", "LoginEnRegister",new { area = "" });
+            return RedirectToAction("SignIn", "LoginEnRegister", new { area = "" });
         }
-        public async Task<IActionResult> Register(User obj)
+        [HttpPost]
+        public IActionResult Cookies(User obj)
+        {
+            return cookies(obj);
+
+        }
+        private async Task<IActionResult> register(User obj)
         {
             string reUserId = obj.UserId;
             string repassword = obj.Password;
@@ -71,25 +81,44 @@ namespace FloraFlow.Controllers
             var responseString = await response.Content.ReadAsStringAsync();
 
             return RedirectToAction("SignIn", "LoginEnRegister", new { area = "" });
-        }
 
-        public IActionResult CookiesDeleter()
+        }
+        public async Task<IActionResult> Register(User obj)
+        {
+            return await register(obj);
+
+        }
+        private IActionResult cookiesDeleter()
         {
             Response.Cookies.Delete("Userid");
             Response.Cookies.Delete("password");
             return View("~/Views/LoginEnRegister/Inlog.cshtml");
            
         }
-        public IActionResult Logout()
+        public IActionResult CookiesDeleter()
+        {
+            return cookiesDeleter();
+
+        }
+        private IActionResult logout()
         {
             Response.Cookies.Delete("Userid");
             Response.Cookies.Delete("password");
             return View("~/Views/LoginEnRegister/Inlog.cshtml");
         }
-        
-        public IActionResult ToRegisterView()
+        public IActionResult Logout()
+        {
+            return logout();
+
+        }
+        private IActionResult toRegisterView()
         {
             return View("~/Views/LoginEnRegister/register.cshtml");
+        }
+        public IActionResult ToRegisterView()
+        {
+            return toRegisterView();
+
         }
 
 

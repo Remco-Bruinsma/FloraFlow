@@ -13,7 +13,8 @@ namespace FloraFlow.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> UpdatePot()
+        
+       private async Task<IActionResult> updatePot()
         {
             int pot = (int)TempData["pot"];
             int plant = (int)TempData["plant"];
@@ -27,5 +28,11 @@ namespace FloraFlow.Controllers
             var responseString = await response.Content.ReadAsStringAsync();
             return RedirectToAction("Getuserpots", "Pots", new { area = "" });
         }
+        public async Task<IActionResult> UpdatePot()
+        {
+            return await updatePot();
+        }
+
+
     }
 }

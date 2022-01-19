@@ -9,9 +9,13 @@ namespace FloraFlow.Models
 {
     public class User 
     {
-        [Required (ErrorMessage = "username is required")]
-        public string UserId { get; set; }
-        [Required (ErrorMessage ="password is required")]
-        public string Password { get; set; }
+        
+        private string userId { get; set; }
+       
+        private string password { get; set; }
+        
+        public string UserId { get=> userId; set=> userId = value; }
+        
+        public string Password { get=> password; set=> password = value; }
     }
 }

@@ -36,7 +36,7 @@
         .flip-card {
             background-color: transparent;
             width: 300px;
-            height: 300px;
+            height: 500px;
             perspective: 1000px;
         }
 
@@ -125,11 +125,11 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="@plantsJson.Url" alt="@plantsJson.PlantName" style="width:300px;height:300px;" />
+                            <img src="@plantsJson.Url" alt="@plantsJson.PlantName" style="width:300px;height:500px;" />
                         </div>
                         <div class="flip-card-back">
                             <h1>"@plantsJson.PlantName"</h1>
-                            <p>Plant descriptie</p>
+                            <p>@plantsJson.PlantDescription</p>
                             <p>We love that plant</p>
                             <div class="btn-group">
                                 <a href="@Url.Action("Changeplants", "Plants", new { plant = plantsJson.Id, })" class="btn btn-success">Add to pot</a>
@@ -140,35 +140,16 @@
                 }
             </div>
         </div>
+        <footer>
+          © 2021 - FloraFlow - Privacy
+        </footer>
         
         
     </body>
 </main>
 
 
-@*<div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                    <div class="card">
-                        <svg class="bd-placeholder-img card-img-top"> <img src="@plants[i].Url" alt="@plants[i].Plant_name" /></svg>
-                        <div class="card-body">
-                            <p class="card-text">Plant @{int count = i + 1;} @count is filled with @plants[i].Plant_name </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
 
-
-                                    <a href="@Url.Action("FillPot", "Pots", new { plant = plants[i] })" class="btn btn-primary">Add to pot</a>
-
-                                </div>
-                                <small class="text-muted"></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">

@@ -19,4 +19,8 @@
     <None Include="wwwroot\images\pot.PNG" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
+
 </Project>

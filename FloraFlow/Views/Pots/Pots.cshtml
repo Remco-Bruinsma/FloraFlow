@@ -56,7 +56,7 @@ Console.WriteLine(Pots);
                             <div class="card shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top"> <img src="@pot.Plant.Url" alt="@pot.Plant.PlantName" style="width:300px;height:300px;" /></svg>
                                 <div class="card-body">
-                                    <p class="card-text">Pot @pot.PotId filled with @pot.Plant.PlantName</p>
+                                    <p class="card-text">Pot ID: @pot.PotId filled with @pot.Plant.PlantName</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <a href="@Url.Action("ChangePot", "Pots", new { pot = pot.PotId})" class="btn btn-success">Change</a>

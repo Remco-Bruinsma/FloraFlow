@@ -7,8 +7,10 @@ namespace FloraFlow.Models
 {
     public class changepotmodel
     {
-        public int Usedpot { get; set; }
-        public int Usedplant { get; set; }
+        private int usedpot;
+        private int usedplant;
+        public int Usedpot { get=> usedpot ; set=> usedpot = value; }
+        public int Usedplant { get=> usedplant; set=> usedplant = value ; }
 
     }
 }

@@ -7,13 +7,28 @@ namespace FloraFlow.Models
 {
     public class PlantModel
     {
-        public int Id { get; set; } 
-        public string Plant_name { get; set; } 
-        public int Use_of_water { get; set; } 
-        public int Time_delay { get; set; } 
-        public string Plant_description { get; set; } 
-        public string Url { get; set; } 
-        public int Hydration_needed { get; set; } 
+        private int id;
+
+        private string plant_name;
+
+        private int use_of_water;
+
+        private int time_delay;
+
+        private string plant_description;
+
+        private string url;
+
+        private int hydration_needed;
+
+
+        public int Id { get => id; set => id = value; }
+        public string Plant_name { get => plant_name; set => plant_name = value; }
+        public int Use_of_water { get => use_of_water; set => use_of_water = value; }
+        public int Time_delay { get => time_delay; set => time_delay = value; }
+        public string Plant_description { get => plant_description; set => plant_description = value; }
+        public string Url { get => url; set => url = value; }
+        public int Hydration_needed { get => hydration_needed; set => hydration_needed = value; }
 
     }
 }

@@ -1,4 +1,4 @@
-﻿using FloraFlow.Classes;
+﻿
 using FloraFlow.Models;
 using Microsoft.AspNetCore.Mvc;
 using PlantJson_QuickType;
@@ -13,7 +13,7 @@ namespace FloraFlow.Controllers
     public class PlantsController : Controller
     {
      
-        public IActionResult Plants()
+        private IActionResult plants()
         {
             using (var webClient = new WebClient())
             {
@@ -26,15 +26,23 @@ namespace FloraFlow.Controllers
             
             return View("~/Views/Plants/Plants.cshtml");
 
+        }
+        public IActionResult Plants()
+        {
+            return plants();
 
         }
-      
-        public IActionResult Changeplants(int plant)
+        private IActionResult changeplants(int plant)
         {
-            
             ViewData["plant"] = plant;
             TempData["plant"] = plant;
             return RedirectToAction("UpdatePot", "AsignPlant", new { area = "" });
+
+        }
+        public IActionResult Changeplants(int plant)
+        {
+            return changeplants(plant);
+
         }
 
     }
